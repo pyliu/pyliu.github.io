@@ -114,3 +114,13 @@ legend {
 	height: auto;
 	vertical-align: middle;
 }
+
+.btn_grp {
+	clear: both;
+	text-align: right;
+}
+
+.btn_grp img {
+	width: 32px;
+	height: auto;
+}

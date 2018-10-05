@@ -13,6 +13,7 @@
 <!-- Custom styles for this template -->
 <link href="assets/css/starter-template.css" rel="stylesheet">
 <link href="assets/css/bootstrap-datepicker.standalone.min.css" rel="stylesheet">
+<link href="assets/css/bootstrap-treeview.min.css" rel="stylesheet">
 <link href="assets/css/main.css" rel="stylesheet">
 </head>
 
@@ -49,29 +50,32 @@
   <section>
     <div class="container-fluid">
       <div class="row">
-        <div class="col" id="preview"><!-- preview selected result here --></div>
+        <div class="col" id="preview">
+          <!-- preview selected result here -->
+          <div id="tree"></div>
+        </div>
         <div class="col-6 text-center">
           <form id="inheritance_form" name="inheritance_form" action="">
 
-            <div id="no0_btn_grp">
-              <button id="no0_btn_next" class="btn btn-primary">下一步</button>
+            <div id="no0_btn_grp" class="btn_grp">
+              <button id="no0_btn_next" class="btn btn-outline-light" title="下一步"><img src="assets/img/right.png" /></button>
             </div>
             
             <fieldset class="layer1" id="layer1_input_case">
-              <legend><span class="text-danger">*</span>#0 收件資訊</legend>
+              <legend><span class="text-danger">*</span>收件資訊</legend>
               <label for="serial">收件年期字號：</label>
               <input type="text" id="serial" name="serial" value="" data-trigger="focus" data-toggle="popover" data-content="如：107-HA81-012345" data-placement="bottom" />
               <label for="heir">被繼承人姓名：</label>
               <input type="text" id="heir" name="heir" value="" data-trigger="focus" data-toggle="popover" data-content="繼承人姓名不能空值！" />
             </fieldset>
             
-            <div id="no1_btn_grp" class="hide">
-              <button id="no1_btn_prev" class="btn btn-default">上一步</button>
-              <button id="no1_btn_next" class="btn btn-primary">下一步</button>
-          </div>
+            <div id="no1_btn_grp" class="hide btn_grp">
+              <button id="no1_btn_prev" class="btn btn-outline-light" title="上一步"><img src="assets/img/left.png" /></button>
+              <button id="no1_btn_next" class="btn btn-outline-light" title="下一步"><img src="assets/img/right.png" /></button>
+            </div>
 
             <fieldset class="layer1" id="layer1_select_type">
-              <legend id="heir_reg_type_legend" data-trigger="manual" data-toggle="popover" data-content="請選擇繼承登記類型！" data-placement="right"><span class="text-danger">*</span>#1 繼承登記類型</legend>
+              <legend id="heir_reg_type_legend" data-trigger="manual" data-toggle="popover" data-content="請選擇繼承登記類型！" data-placement="right"><span class="text-danger">*</span>繼承登記類型</legend>
               <div class="">
                 <label for="type_0_law_heir"><input type="radio" id="type_0_law_heir" name="heir_reg_type" value="type_0_law_heir" /> 法定繼承</label>
                 <label for="type_1_split_heir"><input type="radio" id="type_1_split_heir" name="heir_reg_type" value="type_1_split_heir" /> 分割繼承</label>
@@ -83,13 +87,13 @@
               </div>
             </fieldset>
 
-            <div id="no2_btn_grp" class="hide">
-              <button id="no2_btn_prev" class="btn btn-secondary">上一步</button>
-              <button id="no2_btn_next" class="btn btn-primary">下一步</button>
+            <div id="no2_btn_grp" class="hide btn_grp">
+              <button id="no2_btn_prev" class="btn btn-outline-light" title="上一步"><img src="assets/img/left.png" /></button>
+              <button id="no2_btn_next" class="btn btn-outline-light" title="下一步"><img src="assets/img/right.png" /></button>
             </div>
 
             <fieldset class="layer1" id="layer1_target_check_items">
-              <legend>#2 被繼承人審查項目</legend>
+              <legend>被繼承人審查項目</legend>
               <fieldset class="layer2 fix">
                 <legend id="death_period_legend" data-trigger="manual" data-toggle="popover" data-content="請選擇死亡日期！" data-placement="right">死亡日期</legend>
                 <label for="jp"><input type="radio" id="jp" name="death_period" value="jp" /> 日據時期(民國34年10月24日前死亡)</label> <a href="assets/files/01_日據時期繼承.pdf" title="相關法令" target="_blank"><img src="assets/img/pdf.png" class="pdf" /></a><br/>
@@ -172,13 +176,13 @@
               </fieldset>
             </fieldset>
 
-            <div id="no3_btn_grp" class="hide">
-              <button id="no3_btn_prev" class="btn btn-secondary">上一步</button>
-              <button id="no3_btn_next" class="btn btn-primary">下一步</button>
+            <div id="no3_btn_grp" class="hide btn_grp">
+              <button id="no3_btn_prev" class="btn btn-outline-light" title="上一步"><img src="assets/img/left.png" /></button>
+              <button id="no3_btn_next" class="btn btn-outline-light" title="下一步"><img src="assets/img/right.png" /></button>
             </div>
 
             <fieldset class="layer1" id="layer1_heir_check_items">
-              <legend id="heir_method_legend" data-trigger="manual" data-toggle="popover" data-content="請選擇繼承人審查項目！" data-placement="right">#3 繼承人審查項目</legend>
+              <legend id="heir_method_legend" data-trigger="manual" data-toggle="popover" data-content="請選擇繼承人審查項目！" data-placement="right">繼承人審查項目</legend>
               <div class="left">
                 <label for="heir_method_subrogation"><input type="checkbox" id="heir_method_subrogation" name="heir_method_subrogation" value="subrogation" class="heir_method_checkbox" /> 代位</label> <a href="assets/files/03_代位及再轉繼承之規定.pdf" title="相關法令" target="_blank"><img src="assets/img/pdf.png" class="pdf" /></a> <br/>
                 <label for="heir_method_transfer"><input type="checkbox" id="heir_method_transfer" name="heir_method_transfer" value="transfer" class="heir_method_checkbox" /> 再轉</label> <a href="assets/files/03_代位及再轉繼承之規定.pdf" title="相關法令" target="_blank"><img src="assets/img/pdf.png" class="pdf" /></a> <br/>
@@ -245,13 +249,14 @@
               </div>
             </fieldset>
 
-            <div id="no4_btn_grp" class="hide">
-              <button id="no4_btn_prev" class="btn btn-secondary">上一步</button>
-              <button id='GEN_btn' class='btn btn-success' title="GENERATE TABLE">產製審查表格</button>
+            <div id="no4_btn_grp" class="hide btn_grp">
+              <button id="no4_btn_prev" class="btn btn-outline-light" title="上一步"><img src="assets/img/left.png" /></button>
+              <button id='GEN_btn' class="btn btn-outline-success" title="產製審查表格"><img src="assets/img/right.png" /></button>
+              <!--<button id='GEN_btn' class='btn btn-success' title="GENERATE TABLE">產製審查表格</button>-->
             </div>
 
             <fieldset class="layer1" id="layer1_result">
-              <legend>#4 應附文件</legend>
+              <legend>應附文件</legend>
               <div class="container-fluid left">
                 <div class="w3-row">
                   <label for="heir_death_remove_cert" class="w3-col"><input type="checkbox" id="heir_death_remove_cert" name="heir_death_remove_cert" value="yes" /> 被繼承人死亡除戶戶籍謄本</label>
@@ -290,6 +295,7 @@
   <!-- <script>window.jQuery || document.write('<script src="../../../../assets/js/vendor/jquery.min.js"><\/script>')</script> -->
   <script src="assets/js/popper.min.js"></script>
   <script src="assets/js/bootstrap.min.js"></script>
+  <script src="assets/js/bootstrap-treeview.min.js"></script>
   <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
   <script src="assets/js/ie10-viewport-bug-workaround.js"></script>
   <!-- Custom scripts for UI event handling -->
